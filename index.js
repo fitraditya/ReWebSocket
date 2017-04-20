@@ -120,14 +120,15 @@
     if (self.options.useOfflinejs) {
       if (!('Offline' in window)) {
         console.error('Your have to manually include offline.js in your application.');
-        return;
-      }
+      } else {
+        self.Offline = Offline;
 
-      Offline.on('down', function() {
-        if (ws && (ws.readyState !== WebSocket.CLOSING || ws.readyState !== WebSocket.CLOSED)) {
-          ws.close();
-        }
-      });
+        Offline.on('down', function() {
+          if (ws && (ws.readyState !== WebSocket.CLOSING || ws.readyState !== WebSocket.CLOSED)) {
+            ws.close();
+          }
+        });
+      }
     }
 
     // Self method
@@ -144,6 +145,7 @@
       self.closed = false;
     }
 
+    // Public method
     self.send = function(data) {
       if (ws) {
         ws.send(data);
