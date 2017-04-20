@@ -85,7 +85,6 @@
       };
 
       ws.onclose = function(event) {
-        console.log('close');
         getReadyState()
 
         ws = null;
@@ -150,7 +149,7 @@
       if (ws) {
         ws.send(data);
       } else {
-        console.error('Invalid WebSocket state. Please open WebSocket connection first.');
+        console.error('Invalid WebSocket state while sending data.');
       }
     };
 
@@ -159,7 +158,7 @@
         self.closed = true;
         ws.close();
       } else {
-        console.error('Invalid WebSocket state. Please open WebSocket connection first.');
+        console.error('Invalid WebSocket state while closing connection.');
       }
     };
   }
