@@ -153,6 +153,15 @@
         console.error('Invalid WebSocket state. Please open WebSocket connection first.');
       }
     };
+
+    self.close = function() {
+      if (ws) {
+        self.closed = true;
+        ws.close();
+      } else {
+        console.error('Invalid WebSocket state. Please open WebSocket connection first.');
+      }
+    };
   }
 
   // Websocket state
