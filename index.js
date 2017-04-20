@@ -65,7 +65,7 @@
       }
 
       if ((self.options.maxAttempts > 0) && (attempt > self.options.maxAttempts)) {
-        console.error('Maximum reconnect attempts reached');
+        console.error('Maximum reconnect attempts reached.');
         destroy();
         return;
       }
@@ -98,7 +98,7 @@
           destroy();
         } else {
           if (self.options.debug) {
-            console.warn('WebSocket connection closed, reconnect...');
+            console.warn('WebSocket connection closed. Reconnecting.');
           }
 
           setTimeout(function() {
@@ -134,7 +134,7 @@
       if (ws) {
         ws.send(data);
       } else {
-        console.error('Invalid state, please open WebSocket connection first');
+        console.error('Invalid WebSocket state. Please open WebSocket connection first.');
       }
     };
   }
