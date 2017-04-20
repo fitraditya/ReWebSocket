@@ -163,12 +163,6 @@
     };
   }
 
-  // Websocket state
-  ReWebSocket.CONNECTING = WebSocket.CONNECTING;
-  ReWebSocket.OPEN = WebSocket.OPEN;
-  ReWebSocket.CLOSING = WebSocket.CLOSING;
-  ReWebSocket.CLOSED = WebSocket.CLOSED;
-
   // Websocket listener
   ReWebSocket.prototype.onopen = function(event) {};
   ReWebSocket.prototype.onclose = function(event) {};
