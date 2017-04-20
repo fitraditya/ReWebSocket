@@ -20,7 +20,8 @@
       debug: false,
       reconnect: true,
       interval: 1500,
-      maxAttempts: 0
+      maxAttempts: 0,
+      useOfflinejs: false
     }
 
     if (typeof options === 'undefined') {
@@ -115,6 +116,20 @@
     };
 
     self.open(self.attempt);
+
+    // Offline.js option
+    if (self.options.useOfflinejs) {
+      if (!('Offline' in window)) {
+        console.error('Your have to manually include offline.js in your application.');
+        return;
+      }
+
+      Offline.on('down', function() {
+        if (ws && (ws.readyState !== WebSocket.CLOSING || ws.readyState !== WebSocket.CLOSED)) {
+          ws.close();
+        }
+      });
+    }
 
     // Self method
     function getReadyState() {
