@@ -1,2 +1,2 @@
 # ReWebSocket
-A simple JavaScript WebSocket API wrapper that automatically reconnects
+A simple JavaScript WebSocket API wrapper with automatic reconnect function.
