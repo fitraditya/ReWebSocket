@@ -65,7 +65,7 @@
         ws = new WebSocket(self.url);
       }
 
-      if ((self.options.maxAttempts > 0) && (attempt > self.options.maxAttempts)) {
+      if ((self.options.maxAttempts > 0) && (attempt >= self.options.maxAttempts)) {
         console.error('Maximum reconnect attempts reached.');
         destroy();
         return;
@@ -111,7 +111,6 @@
       ws.onerror = function(event) {
         getReadyState()
         self.onerror(event);
-        destroy();
       };
     };
 
