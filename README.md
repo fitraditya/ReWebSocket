@@ -4,11 +4,11 @@ A simple JavaScript WebSocket API wrapper with automatic reconnect function if t
 
 ReWebSocket is fully API compatible. You just need to replace
 ```javascript
-var ws = new WebSocket(url, protocol);
+var ws = new WebSocket(url, protocols);
 ```
 with
 ```javascript
-var ws = new ReWebSocket(url, protocol, options);
+var ws = new ReWebSocket(url, protocols, options);
 ```
 
 Installation
@@ -68,6 +68,7 @@ Methods
 ReWebSocket has similar methods to WebSocket.
 - `send()`
 - `close()`
+
 Additional methods:
 - `open()`: Manually open WebSocket connection if the connection is fully closed.
 
@@ -78,6 +79,7 @@ ReWebSocket has similar events to WebSocket.
 - `onmessage`
 - `onerror`
 - `onclose`
+
 Additional events:
 - `onreopen`: Triggered when trying to reopen WebSocket connection if the maximum reconnection attempts has not reached yet.
 - `onstop`: Triggered when user manually close the WebSocket connection, or maximum reconnection attempts has reached.
