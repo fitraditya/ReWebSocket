@@ -1,6 +1,6 @@
 ReWebSocket
 ===========
-A simple JavaScript WebSocket API wrapper with automatic reconnect function if the connection is down.
+A simple JavaScript WebSocket API wrapper with automatic reconnect function if the connection was down.
 
 ReWebSocket is fully API compatible. You just need to replace
 ```javascript
@@ -40,12 +40,12 @@ Options
 - Boolean. Default: `false`
 
 #### `reconnect`
-- Whether to implement automatic reconnect if the connection is down.
+- Whether to implement automatic reconnect if the connection was down.
 - Boolean. Default: `true`
 
 #### `interval`
 - The number of milliseconds to delay before attempting to reconnect.
-- Integer. Default: `2000`
+- Integer. Default: `5000`
 
 #### `maxAttempts`
 - The number of maximum reconnection attempts that will be made before giving up.
@@ -70,7 +70,7 @@ ReWebSocket has similar methods to WebSocket.
 - `close()`
 
 Additional methods:
-- `open()`: Manually open WebSocket connection if the connection is fully closed.
+- `open()`: Manually open WebSocket connection if the connection has fully closed.
 
 Events
 ------
@@ -113,4 +113,4 @@ Example
 
 Documentation
 -------------
-See the documentation [here](https://github.com/fitraditya/ReWebSocket/tree/master/docs)
+See the documentation [here](https://github.com/fitraditya/ReWebSocket/tree/master/docs).
