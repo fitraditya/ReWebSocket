@@ -72,7 +72,7 @@
       } else {
         if (self.options.debug) {
           console.warn('Reconnecting, attempt ' + attempt);
-          self.onreopen();
+          self.onreopen(null);
         }
       }
 
@@ -147,7 +147,7 @@
     function destroy() {
       self.attempt = 0;
       self.closed = false;
-      self.onstop();
+      self.onstop(null);
     }
 
     // Public method
