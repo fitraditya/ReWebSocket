@@ -59,13 +59,14 @@
 
     self.open = function(attempt) {
       ws = null;
-      ws.binaryType = self.binaryType;
 
       if (self.protocol) {
         ws = new WebSocket(self.url, self.protocol);
       } else {
         ws = new WebSocket(self.url);
       }
+
+      ws.binaryType = self.binaryType;
 
       if ((self.options.maxAttempts > 0) && (attempt >= self.options.maxAttempts)) {
         console.error('Maximum reconnect attempts reached.');
