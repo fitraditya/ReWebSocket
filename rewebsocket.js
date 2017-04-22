@@ -48,6 +48,7 @@
     self.protocol = protocol;
     self.options = options;
     self.readyState = 0;
+    self.binaryType = 'blob';
 
     self.attempt = 0;
     self.closed = false;
@@ -58,6 +59,7 @@
 
     self.open = function(attempt) {
       ws = null;
+      ws.binaryType = self.binaryType;
 
       if (self.protocol) {
         ws = new WebSocket(self.url, self.protocol);
@@ -153,6 +155,7 @@
     // Public method
     self.send = function(data) {
       if (ws) {
+        ws.binaryType = self.binaryType;
         ws.send(data);
       } else {
         console.error('Invalid WebSocket state while sending data.');
