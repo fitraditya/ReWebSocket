@@ -58,7 +58,9 @@
     var ws = null;
 
     self.open = function(attempt) {
-      ws = null;
+      if (ws) {
+        return;
+      }
 
       if ((self.options.maxAttempts > 0) && (attempt >= self.options.maxAttempts)) {
         console.error('Maximum reconnect attempts reached.');
@@ -67,8 +69,8 @@
       } else {
         if (self.options.debug) {
           console.warn('Reconnecting, attempt ' + attempt);
-          self.onreopen(null);
         }
+        self.onreopen(null);
       }
 
       self.attempt++;
