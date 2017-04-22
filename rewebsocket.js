@@ -19,7 +19,7 @@
     var defaultOptions = {
       debug: false,
       reconnect: true,
-      interval: 2000,
+      interval: 5000,
       maxAttempts: 0,
       useOfflinejs: false
     }
