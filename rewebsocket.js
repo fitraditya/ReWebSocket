@@ -69,6 +69,11 @@
         console.error('Maximum reconnect attempts reached.');
         destroy();
         return;
+      } else {
+        if (self.options.debug) {
+          console.warn('Reconnecting, attempt ' + attempt);
+          self.onreopen();
+        }
       }
 
       self.attempt++;
@@ -142,6 +147,7 @@
     function destroy() {
       self.attempt = 0;
       self.closed = false;
+      self.onstop();
     }
 
     // Public method
@@ -169,6 +175,10 @@
   ReWebSocket.prototype.onconnecting = function(event) {};
   ReWebSocket.prototype.onmessage = function(event) {};
   ReWebSocket.prototype.onerror = function(event) {};
+
+  // Additional listener
+  ReWebSocket.prototype.onreopen = function(event) {};
+  ReWebSocket.prototype.onstop = function(event) {};
 
   return ReWebSocket;
 });
