@@ -21,7 +21,7 @@ Include the javascript, and you're done!
 Initialization
 --------------
 ```javascript
-var ws = new ReWebSocket(url, protocol, options);
+var ws = new ReWebSocket(url, protocols, options);
 ```
 
 #### `url`
@@ -83,3 +83,34 @@ ReWebSocket has similar events to WebSocket.
 Additional events:
 - `onreopen`: Triggered when trying to reopen WebSocket connection if the maximum reconnection attempts has not reached yet.
 - `onstop`: Triggered when user manually close the WebSocket connection, or maximum reconnection attempts has reached.
+
+Example
+-------
+```html
+<script src="rewebsocket.min.js"></script>
+<script>
+  var ws = new ReWebSocket('wss://rewebsocket.herokuapp.com');
+  ws.onopen = function(event) {
+    // do something
+  }
+  ws.onreopen = function(event) {
+    // do something
+  }
+  ws.onmessage = function(event) {
+    // do something
+  }
+  ws.onerror = function(event) {
+    // do something
+  }
+  ws.onclose = function(event) {
+    // do something
+  }
+  ws.onstop = function(event) {
+    // do something
+  }
+</script>
+```
+
+Documentation
+-------------
+See the documentation [here](https://github.com/fitraditya/ReWebSocket/tree/master/docs)
